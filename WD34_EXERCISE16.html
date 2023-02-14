@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title>Crypto Converter</title>
+</head>
+<body>
+
+    <img class="cryptoimg" src="crypto.jpeg" alt="">
+    <h1 class="theTitle">Crypto Currency Converter</h1>
+
+    <!-- SlideShow and Live Crypto Price -->
+    <div class="container">
+        <div class="content">
+            <div class="cryptoCoins">
+                <div class="bitcoin">
+                    <img src="800px-Bitcoin.svg.png" style="width: 75%;" alt="">
+                    <h2>Bitcoin</h2>
+                    <div class="price">
+                        <p>USD:</p>
+                        <p>$<span id="usdbitcoin"></span></p>
+                    </div>
+                    <div class="price">
+                        <p>PHP:</p>
+                        <p>&#8369;<span id="phpbitcoin"></span></p>
+                    </div>
+                    <div class="price">
+                        <p>EUR:</p>
+                        <p>&#8364;<span id="eurbitcoin"></span></p>
+                    </div>
+                </div>
+                <div class="bitcoin">
+                    <img src="etherium.png" style="width: 75%;" alt="">
+                    <h2>Etherium</h2>
+                    <div class="price">
+                        <p>USD:</p>
+                        <p>$<span id="usdethereum"></span></p>
+                    </div>
+                    <div class="price">
+                        <p>PHP:</p>
+                        <p>&#8369;<span id="phpethereum"></span></p>
+                    </div>
+                    <div class="price">
+                        <p>EUR:</p>
+                        <p>&#8364;<span id="eurethereum"></span></p>
+                    </div>
+                </div>
+                <div class="bitcoin">
+                    <img src="Dogecoin-DOGE-Logo.png" style="width: 75%;" alt="">
+                    <h2>Dogecoin</h2>
+                    <div class="price">
+                        <p>USD:</p>
+                        <p>$<span id="usddogecoin"></span></p>
+                    </div>
+                    <div class="price">
+                        <p>PHP:</p>
+                        <p>&#8369;<span id="phpdogecoin"></span></p>
+                    </div>
+                    <div class="price">
+                        <p>EUR:</p>
+                        <p>&#8364;<span id="eurdogecoin"></span></p>
+                    </div>
+                </div>
+                <br>
+                <div style="text-align:center">
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+                <button id="myBtn" class="convert">Convert Now!</button>
+
+                <!-- The modal Content -->
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close"><a href="">&times;</a></span>
+                        <h2>Convert Now</h2>
+
+                        <!-- Convert currency to crypto -->
+                        <hr>
+                        <div class="USD-content">
+                            <div class="PriceConvert">
+                                <h3>USD:</h3>
+                                <div>
+                                    <input type="number" id="firstNumber"></input>
+                                    <button onclick="usdConvert();">convert</button>
+                                </div>
+                            </div>
+                            <div class="PriceConvert">
+                                <h3>PHP:</h3>
+                                <div>
+                                    <input type="number" id="secondNumber"></input>
+                                    <button onclick="phpConvert();">convert</button>
+                                </div>
+                            </div>
+                            <div class="PriceConvert">
+                                <h3>EUR:</h3>
+                                <div>
+                                    <input type="number" id="thirdNumber"></input>
+                                    <button onclick="eurConvert();">convert</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin-content">
+                            <hr>
+                            <div>
+                                <h4>Bitcoin:</h4>
+                                <h4 id="btccoinConvert"></h4>
+                            </div>
+                            <div>
+                                <h4>Ethereum:</h4>
+                                <h4 id="ethcoinConvert"></h4>
+                            </div>
+                            <div>
+                                <h4>Dogecoin:</h4>
+                                <h4 id="dogecoinConvert"></h4>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- Convert cyrpto to currency -->
+                        <div class="USD-content">
+                            <div class="PriceConvert">
+                                <h3>Bitcoin:</h3>
+                                <div>
+                                    <input type="number" id="firstNumbertwo"></input>
+                                    <button onclick="usdConverttwo();">convert</button>
+                                </div>
+                            </div>
+                            <div class="PriceConvert">
+                                <h3>Ethereum:</h3>
+                                <div>
+                                    <input type="number" id="secondNumbertwo"></input>
+                                    <button onclick="phpConverttwo();">convert</button>
+                                </div>
+                            </div>
+                            <div class="PriceConvert">
+                                <h3>Dogecoin:</h3>
+                                <div>
+                                    <input type="number" id="thirdNumbertwo"></input>
+                                    <button onclick="eurConverttwo();">convert</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coin-content">
+                            <hr>
+                            <div>
+                                <h4>USD:</h4>
+                                <h4 id="btccoinConverttwo"></h4>
+                            </div>
+                            <div>
+                                <h4>PHP:</h4>
+                                <h4 id="ethcoinConverttwo"></h4>
+                            </div>
+                            <div>
+                                <h4>EUR:</h4>
+                                <h4 id="dogecoinConverttwo"></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="space">
+        </div>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>
